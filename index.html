@@ -8,40 +8,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Rappresentazione della Gestione della Memoria</h1>
+    <header>
+        <h1>Rappresentazione della Gestione della Memoria</h1>
+        <p>Un diagramma che illustra la suddivisione della memoria nei vari segmenti.</p>
+    </header>
 
     <div class="container">
         <div class="memory-diagram">
             <div class="memory-segment text">
-                <span>Text Segment - Codice eseguibile</span>
+                <span class="segment-title">Text Segment</span>
+                <p>Contiene il codice eseguibile</p>
             </div>
             <div class="memory-segment data">
-                <span>Data Segment - Variabili globali e statiche</span>
+                <span class="segment-title">Data Segment</span>
+                <p>Contiene variabili globali e statiche</p>
             </div>
             <div class="memory-segment heap">
-                <span>Heap - Memoria allocata dinamicamente</span>
+                <span class="segment-title">Heap</span>
+                <p>Contiene la memoria allocata dinamicamente</p>
             </div>
             <div class="memory-segment stack">
-                <span>Stack - Chiamate alle funzioni e variabili locali</span>
+                <span class="segment-title">Stack</span>
+                <p>Contiene le chiamate alle funzioni e le variabili locali</p>
             </div>
         </div>
 
         <div class="legend">
-            <div>
-                <div style="background-color: #f0f8ff; width: 20px; height: 20px; display: inline-block;"></div>
-                <span>Text Segment</span>
+            <h3>Legenda</h3>
+            <div class="legend-item">
+                <div class="color-box text"></div>
+                <span>Text Segment - Codice eseguibile</span>
             </div>
-            <div>
-                <div style="background-color: #d3ffd3; width: 20px; height: 20px; display: inline-block;"></div>
-                <span>Data Segment</span>
+            <div class="legend-item">
+                <div class="color-box data"></div>
+                <span>Data Segment - Variabili globali e statiche</span>
             </div>
-            <div>
-                <div style="background-color: #ffebcd; width: 20px; height: 20px; display: inline-block;"></div>
-                <span>Heap</span>
+            <div class="legend-item">
+                <div class="color-box heap"></div>
+                <span>Heap - Memoria allocata dinamicamente</span>
             </div>
-            <div>
-                <div style="background-color: #ffe4e1; width: 20px; height: 20px; display: inline-block;"></div>
-                <span>Stack</span>
+            <div class="legend-item">
+                <div class="color-box stack"></div>
+                <span>Stack - Chiamate alle funzioni e variabili locali</span>
             </div>
         </div>
     </div>
