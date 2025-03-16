@@ -1,110 +1,120 @@
 /* Impostazioni generali della pagina */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f7fc;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-}
-
-.container {
-  text-align: center;
-  width: 90%;
-  max-width: 800px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 600;
+    color: #333;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-/* Stile dei segmenti di memoria */
-.memory-segment {
-  width: 80%;
-  height: 60px;
-  border-radius: 10px;
-  margin: 10px 0;
-  color: white;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+/* Struttura della memoria */
+.memory {
+    border: 2px solid #333;
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Effetto hover sui segmenti */
-.memory-segment:hover {
-  transform: scale(1.05);
+.segment {
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: height 0.3s ease, background-color 0.3s ease;
 }
 
 /* Colorazione dei segmenti */
 .text-segment {
-  background: linear-gradient(45deg, #4CAF50, #66BB6A);
+    background-color: #4CAF50;
+    color: white;
 }
 
 .data-segment {
-  background: linear-gradient(45deg, #2196F3, #42A5F5);
+    background-color: #2196F3;
+    color: white;
 }
 
 .heap-segment {
-  background: linear-gradient(45deg, #FFC107, #FFCA28);
+    background-color: #FF9800;
+    color: white;
 }
 
 .stack-segment {
-  background: linear-gradient(45deg, #FF5722, #FF7043);
+    background-color: #F44336;
+    color: white;
 }
 
 /* Legenda */
 .legend {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 16px;
 }
 
-.legend div {
-  width: 25px;
-  height: 25px;
-  border-radius: 5px;
+.color-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 
-.legend-text {
-  font-size: 14px;
-  display: flex;
-  align-items: center;
+.controls {
+    text-align: center;
+    margin-top: 30px;
 }
 
-.legend-text span {
-  margin-left: 8px;
-  color: #333;
+button {
+    padding: 12px 25px;
+    margin: 10px 15px;
+    cursor: pointer;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Colorazioni della legenda */
-.text-legend {
-  background: #4CAF50;
+button:hover {
+    background-color: #303f9f;
+    transform: scale(1.05);
 }
 
-.data-legend {
-  background: #2196F3;
+button:active {
+    background-color: #1a237e;
 }
 
-.heap-legend {
-  background: #FFC107;
+/* Aggiunta di padding per il corpo della pagina */
+body {
+    padding: 20px;
 }
 
-.stack-legend {
-  background: #FF5722;
+/* Aggiornamenti alla visualizzazione dei segmenti */
+.memory {
+    width: 340px; /* Aumentato leggermente per più spazio */
 }
+
+.segment {
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Transizioni dei segmenti per gli aggiornamenti della memoria */
+.segment {
+    transition: height 0.3s ease, padding 0.3s ease;
+}
+
 
