@@ -1,42 +1,78 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestione della Memoria</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione della Memoria</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Gestione della Memoria</h1>
-
-    <div class="memory-segment text-segment">
-      <span>Text Segment</span>
+    <h1>Rappresentazione Grafica della Gestione della Memoria</h1>
+    
+    <div class="memory">
+        <div class="segment text-segment">Text Segment</div>
+        <div class="segment data-segment">Data Segment</div>
+        <div class="segment heap-segment" id="heap" aria-live="polite">Heap (20px)</div>
+        <div class="segment stack-segment" id="stack" aria-live="polite">Stack (20px)</div>
     </div>
-    <div class="memory-segment data-segment">
-      <span>Data Segment</span>
-    </div>
-    <div class="memory-segment heap-segment">
-      <span>Heap Segment</span>
-    </div>
-    <div class="memory-segment stack-segment">
-      <span>Stack Segment</span>
-    </div>
-
+    
     <div class="legend">
-      <div class="text-legend"></div>
-      <div class="legend-text"><span>Text Segment</span></div>
-      
-      <div class="data-legend"></div>
-      <div class="legend-text"><span>Data Segment</span></div>
-
-      <div class="heap-legend"></div>
-      <div class="legend-text"><span>Heap Segment</span></div>
-
-      <div class="stack-legend"></div>
-      <div class="legend-text"><span>Stack Segment</span></div>
+        <h2>Leggenda</h2>
+        <ul>
+            <li><span class="color-box text-segment"></span> Text Segment: Codice eseguibile</li>
+            <li><span class="color-box data-segment"></span> Data Segment: Variabili globali e statiche</li>
+            <li><span class="color-box heap-segment"></span> Heap: Memoria allocata dinamicamente</li>
+            <li><span class="color-box stack-segment"></span> Stack: Chiamate alle funzioni e variabili locali</li>
+        </ul>
     </div>
-  </div>
+    
+    <div class="controls">
+        <button id="allocate" class="btn">Allocare Memoria</button>
+        <button id="deallocate" class="btn">Deallocare Memoria</button>
+    </div>
+
+    <script>
+        let heapSize = 20;
+        let stackSize = 20;
+        const maxStackSize = 200;
+        let stack = [];
+
+        const heapDiv = document.getElementById('heap');
+        const stackDiv = document.getElementById('stack');
+
+        document.getElementById('allocate').addEventListener('click', () => {
+            heapSize += 20;
+            heapDiv.style.height = heapSize + 'px';
+            heapDiv.innerText = 'Heap (' + heapSize + 'px)';
+        });
+
+        document.getElementById('deallocate').addEventListener('click', () => {
+            if (heapSize > 20) {
+                heapSize -= 20;
+                heapDiv.style.height = heapSize + 'px';
+                heapDiv.innerText = 'Heap (' + heapSize + 'px)';
+            }
+        });
+
+        // Simulazione della crescita e riduzione dello stack
+        document.getElementById('allocate').addEventListener('click', () => {
+            if (stack.length < 10) { // Limitiamo a 10 chiamate di funzione simulate
+                stack.push("Funzione " + (stack.length + 1));
+                stackSize += 20;
+                stackDiv.style.height = stackSize + 'px';
+                stackDiv.innerText = `Stack (${stackSize}px) - ${stack.length} funzioni`;
+            }
+        });
+
+        document.getElementById('deallocate').addEventListener('click', () => {
+            if (stack.length > 0) {
+                stack.pop();
+                stackSize -= 20;
+                stackDiv.style.height = stackSize + 'px';
+                stackDiv.innerText = `Stack (${stackSize}px) - ${stack.length} funzioni`;
+            }
+        });
+    </script>
 </body>
 </html>
 
