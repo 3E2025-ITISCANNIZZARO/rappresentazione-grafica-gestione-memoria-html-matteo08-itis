@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rappresentazione della Gestione della Memoria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .memory-segment {
+            height: 80px;
+            margin: 5px 0;
+            border: 1px solid #bbb;
+        }
+
+        .text {
+            background-color: #f0f8ff;
+        }
+
+        .data {
+            background-color: #d3ffd3;
+        }
+
+        .heap {
+            background-color: #ffebcd;
+        }
+
+        .stack {
+            background-color: #ffe4e1;
+        }
+
+        .legend {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .legend div {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .legend div span {
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .memory-diagram {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rappresentazione della Gestione della Memoria</h1>
+
+    <div class="container">
+        <div class="memory-diagram">
+            <div class="memory-segment text">
+                <span>Text Segment - Codice eseguibile</span>
+            </div>
+            <div class="memory-segment data">
+                <span>Data Segment - Variabili globali e statiche</span>
+            </div>
+            <div class="memory-segment heap">
+                <span>Heap - Memoria allocata dinamicamente</span>
+            </div>
+            <div class="memory-segment stack">
+                <span>Stack - Chiamate alle funzioni e variabili locali</span>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div>
+                <div style="background-color: #f0f8ff; width: 20px; height: 20px; display: inline-block;"></div>
+                <span>Text Segment</span>
+            </div>
+            <div>
+                <div style="background-color: #d3ffd3; width: 20px; height: 20px; display: inline-block;"></div>
+                <span>Data Segment</span>
+            </div>
+            <div>
+                <div style="background-color: #ffebcd; width: 20px; height: 20px; display: inline-block;"></div>
+                <span>Heap</span>
+            </div>
+            <div>
+                <div style="background-color: #ffe4e1; width: 20px; height: 20px; display: inline-block;"></div>
+                <span>Stack</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
